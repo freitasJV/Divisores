@@ -6,15 +6,26 @@ namespace Divisores
     {
         static void Main(string[] args)
         {
-            Console.Write("Digite o número inteiro: ");
-            int x = int.Parse(Console.ReadLine());
-            
-            for(int i = 1; i <= x; i++)
+            try
             {
-                if (x % i == 0)
+                Console.Write("Digite o número inteiro: ");
+                int x = int.Parse(Console.ReadLine());
+
+                for (int i = 1; i <= x; i++)
                 {
-                    Console.WriteLine(i);
+                    if (x % i == 0)
+                    {
+                        Console.WriteLine(i);
+                    }
                 }
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine($"Erro de formatação: {e.Message}");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Erro inesperado: {e.Message}");
             }
         }
     }
